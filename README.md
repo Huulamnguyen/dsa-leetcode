@@ -5,4 +5,6 @@
 - #100daysofcode
 
 ## Contact me at:
+- [LinkedIn](https://www.linkedin.com/in/huulamnguyen/)
 - [Portfolio](https://liamdev.herokuapp.com/)
+- [Twitter](https://twitter.com/liamdev5)
