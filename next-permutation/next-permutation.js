@@ -22,7 +22,7 @@ var nextPermutation = function(nums) {
       let temp = nums[j];
       nums[j] = nums[peak - 1];
       nums[peak - 1] = temp;
-      break
+      break;
     }
   }
   
