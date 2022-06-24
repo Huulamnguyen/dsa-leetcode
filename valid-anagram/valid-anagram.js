@@ -4,8 +4,33 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    const sArray = s.split('').sort().join('');
-    const tArray = t.split('').sort().join('');
-    
-    return sArray == tArray && sArray.length == tArray.length ? true : false
+  
+  if(s.length !== t.length){
+    return false
+  }
+  
+  const ht = {}
+  
+  for(let i = 0; i < s.length; i++){
+    const letter = s[i]
+    if(ht[letter]){
+      ht[letter]++
+    }else{
+      ht[letter] = 1
+    }
+  }
+  
+  
+  
+  for(let i = 0; i < t.length; i++){
+    const letter = t[i]
+    if(!ht[letter]){
+      return false
+    }else{
+      ht[letter]--
+    }
+  }
+  
+  return true;
+  
 };
