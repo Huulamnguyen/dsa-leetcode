@@ -5,32 +5,30 @@
  */
 var isAnagram = function(s, t) {
   
-  if(s.length !== t.length){
-    return false
-  }
+  const ht = {};
   
-  const ht = {}
+  if(s.length !== t.length){
+    return false;
+  }
   
   for(let i = 0; i < s.length; i++){
     const letter = s[i]
-    if(ht[letter]){
-      ht[letter]++
-    }else{
+    if(!ht[letter]){
       ht[letter] = 1
+    } else {
+      ht[letter]++
     }
   }
   
-  
-  
-  for(let i = 0; i < t.length; i++){
-    const letter = t[i]
+  for(let i = 0; i < t.length;i++){
+    const letter = t[i];
     if(!ht[letter]){
       return false
-    }else{
+    } else {
       ht[letter]--
     }
   }
   
-  return true;
+  return true
   
 };
