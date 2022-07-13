@@ -26,16 +26,26 @@
 // }
 
 
+// function climbStairs(n){
+//   if (n === 1){
+//     return 1;
+//   }
+//   let first = 1
+//   let second = 2
+//   for(let i = 3; i<=n; i++){
+//     let third = first + second
+//     first = second
+//     second = third
+//   }
+//   return second
+// }
+
 function climbStairs(n){
-  if (n === 1){
-    return 1;
-  }
-  let first = 1
-  let second = 2
-  for(let i = 3; i<=n; i++){
-    let third = first + second
-    first = second
-    second = third
-  }
-  return second
+const steps = [0,1,2];
+    
+    
+    for(let i=3;i<=n;i++){
+        steps.push(steps[i-1] + steps[i-2]);
+    }
+    return steps[n];
 }
