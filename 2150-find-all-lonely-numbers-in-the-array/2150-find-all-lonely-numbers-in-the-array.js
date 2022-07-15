@@ -26,32 +26,18 @@ var findLonely = function(nums) {
 //   }
 //   return res;
   
-  const map = {}, ans = []
-    for (let num of nums) {
-        if (map[num]) map[num]++
-        else map[num] = 1
-    }
-
-    for (let i = 0; i < nums.length; i++) {
-        if (map[nums[i]] == 1 && !map[nums[i]-1] && !map[nums[i]+1]) ans.push(nums[i])
-    }
-    
-    return ans
-  
-  
   const hashMap = {}
   const res = []
   
   for(let num of nums){
-    if(map[num]) map[num]++
-    else map[num] = 1
+    if(hashMap[num]) hashMap[num]++
+    else hashMap[num] = 1
   }
   
   for (let i = 0; i < nums.length; i++){
-    if(hasMap[nums[i]] == 1 && !hashMap[nums[i] - 1] && !hashMap(nums[i] + 1)) res.push(nums[i])
+    let num = nums[i]
+    if(hashMap[num] == 1 && !hashMap[num - 1] && !hashMap[num + 1]) res.push(num)
   }
   
   return res;
-
-  
 };
