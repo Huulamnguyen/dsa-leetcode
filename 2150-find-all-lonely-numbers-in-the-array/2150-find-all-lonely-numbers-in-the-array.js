@@ -37,4 +37,21 @@ var findLonely = function(nums) {
     }
     
     return ans
+  
+  
+  const hashMap = {}
+  const res = []
+  
+  for(let num of nums){
+    if(map[num]) map[num]++
+    else map[num] = 1
+  }
+  
+  for (let i = 0; i < nums.length; i++){
+    if(hasMap[nums[i]] == 1 && !hashMap[nums[i] - 1] && !hashMap(nums[i] + 1)) res.push(nums[i])
+  }
+  
+  return res;
+
+  
 };
