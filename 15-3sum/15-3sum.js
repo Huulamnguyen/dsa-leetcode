@@ -23,7 +23,7 @@ var threeSum = function(nums) {
         while(nums[left] === nums[left + 1]) left++;
         while(nums[right] === nums[right -1]) right--;
         left++;
-        right--
+        right--;
       }
     }
   }
