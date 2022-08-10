@@ -2,9 +2,8 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function(s) {
-  
-  const hashMapBrackets = {
+var isValid = function(string) {
+   const hashMapBrackets = {
       '(':')',
       '{':'}',
       '[':']'
@@ -12,7 +11,7 @@ var isValid = function(s) {
     
   const stack = [];
   
-  for (let char of s){
+  for (let char of string){
     if(hashMapBrackets[char]){
       stack.push(char)
     } else if ( stack.length > 0 && hashMapBrackets[stack[stack.length - 1]] === char){
@@ -22,5 +21,5 @@ var isValid = function(s) {
     }
   }
   return stack.length === 0
-  
+    
 };
