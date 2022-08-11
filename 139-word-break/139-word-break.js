@@ -31,10 +31,12 @@ var wordBreak = function(s, wordDict) {
 //   return inTheDict(s)
   
   const table = new Array(s.length + 1).fill(false)
+  console.log(table)
   
   table[0] = true
-  for (let i=0; i<table.length; i++){
-    if(table[i] === false) continue;
+  
+  for(let i=0; i<table.length; i++){
+    if(table[i] === false ) continue;
     for(let j=i+1; j<table.length; j++){
       if(wordDict.includes(s.slice(i,j))){
         table[j] = true
@@ -42,5 +44,6 @@ var wordBreak = function(s, wordDict) {
     }
   }
   
-  return table[table.length - 1]
+  return table[table.length-1]
+  
 };
