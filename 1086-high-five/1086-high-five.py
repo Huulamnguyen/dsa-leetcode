@@ -1,3 +1,6 @@
+# Time: O(n)
+# Space: 0(n)
+
 class Solution:
     def highFive(self, items: List[List[int]]) -> List[List[int]]:
         
@@ -30,4 +33,5 @@ class Solution:
           [res[0], res[1]] = [res[1], res[0]]
         
         return res
+
           
