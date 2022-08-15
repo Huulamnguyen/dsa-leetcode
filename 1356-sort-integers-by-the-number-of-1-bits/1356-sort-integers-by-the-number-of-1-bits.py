@@ -5,6 +5,7 @@ class Solution:
         i=0
         for x in a:
             n=bin(x).replace('0b','').count('1')
+            # print(n)
             try:
                 dat[n] += [a[i]]
             except:
