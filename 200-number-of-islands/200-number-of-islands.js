@@ -1,4 +1,3 @@
-const directions = [[1,0], [-1,0], [0,1], [0,-1]]
 
 var numIslands = function(grid) {
     if (grid === null || grid.length === 0) { return [] }
@@ -17,6 +16,7 @@ var numIslands = function(grid) {
     return count
 }
 
+const directions = [[1,0], [-1,0], [0,1], [0,-1]]
 const bfs = function (start, grid) {
     let queue = [],
         cache = []
