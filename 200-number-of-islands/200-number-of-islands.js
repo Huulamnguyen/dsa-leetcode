@@ -1,33 +1,53 @@
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
+const directions = [[1,0], [-1,0], [0,1], [0,-1]]
+
+var numIslands = function(grid) {
+    if (grid === null || grid.length === 0) { return [] }
+    
+    let count = 0
+    
+    for (let i=0; i<grid.length; i++) {
+        for (let j=0; j<grid[0].length; j++) {
+            if (grid[i][j] === '1') {
+                bfs([i,j], grid)
+                count++
+            }
+        }   
+    }
+    
+    return count
+}
+
+const bfs = function (start, grid) {
+    let queue = [],
+        cache = []
+    
+    queue.push(start)
+    grid[start[0]][start[1]] = '0' // mark as visited
+    
+    while(queue.length !== 0) {
+        let point = queue.shift(),
+            r = point[0],
+            c = point[1]
         
-        if not grid:
-            return 0
-        
-        rows, cols = len(grid), len(grid[0])
-        visit = set()
-        islands = 0
-        
-        def bfs(r,c): #iterative algor
-            q = collections.deque()
-            visit.add((r,c))
-            q.append((r,c))
-            while q:
-                row, col = q.popleft()
-                directions = [[1,0],[-1,0],[0,1],[0,-1]]
-                for dr, dc in directions:
-                    r, c = row + dr, col + dc
-                    if ( r in range(rows) and
-                         c in range(cols) and
-                         grid[r][c] == "1" and
-                        (r,c) not in visit):
-                        q.append((r,c))
-                        visit.add((r,c))
+        for (const [dx,dy] of directions) {
+            let nRow = r + dx,
+                nCol = c + dy
+
+            if (nRow < 0 || nCol < 0 
+                || nRow >= grid.length || nCol >= grid[0].length
+                || grid[nRow][nCol] === '0') {
+                continue
+            }
             
+            grid[nRow][nCol] = '0'    // mark as visited
+            cache.push([nRow,nCol])
+        }
         
-        for r in range(rows):
-            for c in range(cols):
-                if grid[r][c] == "1" and (r, c) not in visit:
-                    bfs(r, c)
-                    islands += 1
-        return islands
+        if (queue.length === 0 && cache.length > 0) {
+            queue.push(...cache)
+            cache = []
+        }
+        
+    }
+    
+}
