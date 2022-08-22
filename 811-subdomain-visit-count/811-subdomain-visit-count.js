@@ -26,9 +26,11 @@ var subdomainVisits = function(cpdomains) {
             }
             
             domain = domain.substr(domain.indexOf(".") + 1)
-            // console.log(domain)
+            console.log(domain)
         }
     }
+    
+    // console.log(domainCount)
     
     const res = []
     
