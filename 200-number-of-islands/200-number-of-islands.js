@@ -1,53 +1,30 @@
 
 var numIslands = function(grid) {
-    if (grid === null || grid.length === 0) { return [] }
     
-    let count = 0
+    const H = grid.length;
+    const W = H && grid[0].length;
+    let count = 0;
     
-    for (let i=0; i<grid.length; i++) {
-        for (let j=0; j<grid[0].length; j++) {
-            if (grid[i][j] === '1') {
-                bfs([i,j], grid)
-                count++
-            }
-        }   
-    }
-    
-    return count
-}
-
-const directions = [[1,0], [-1,0], [0,1], [0,-1]]
-const bfs = function (start, grid) {
-    let queue = [],
-        cache = []
-    
-    queue.push(start)
-    grid[start[0]][start[1]] = '0' // mark as visited
-    
-    while(queue.length !== 0) {
-        let point = queue.shift(),
-            r = point[0],
-            c = point[1]
-        
-        for (const [dx,dy] of directions) {
-            let nRow = r + dx,
-                nCol = c + dy
-
-            if (nRow < 0 || nCol < 0 
-                || nRow >= grid.length || nCol >= grid[0].length
-                || grid[nRow][nCol] === '0') {
-                continue
-            }
+    for (let r = 0; r < H; r++){
+        for (let c = 0; c < W; c++){
+            if(grid[r][c] === '0') continue;
             
-            grid[nRow][nCol] = '0'    // mark as visited
-            cache.push([nRow,nCol])
+            count++;
+            dfs(r,c);
         }
-        
-        if (queue.length === 0 && cache.length > 0) {
-            queue.push(...cache)
-            cache = []
-        }
-        
     }
     
+    return count;
+    
+    function dfs(r,c){
+        if(r < 0 || c < 0 || r === H || c === W) return;
+        if(grid[r][c] === '0') return ;
+        
+        grid[r][c] = '0';
+        dfs(r-1, c);
+        dfs(r+1, c);
+        dfs(r, c-1);
+        dfs(r, c+1);
+    }
+
 }
