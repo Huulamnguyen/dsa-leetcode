@@ -19,9 +19,9 @@ var containsDuplicate = function(nums) {
     }
     
     for (let key in ht){
-        if (ht[key] > 1) return res = true
+        if (ht[key] > 1) return true
     }
     
-    return res
+    return false
     
 };
