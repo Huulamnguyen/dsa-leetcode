@@ -1,28 +1,22 @@
-/**
- * @param {string} s
- * @return {string}
- */
-var reverseParentheses = function(s) {
-    
-    let t = "", pre = ""
-    let last = new Array()
-    
-    for (let c of s){
-        switch(c){
-            case '(':
-                last.push(t)
-                t = ""
-                break
-            case ")":
-                pre = last.pop()
-                t = pre.concat(t.split('').reverse().join(''))
-                break
-            default:
-                t = t.concat(c)
-                break
-        }
-    }
-    
-    return t
-    
-};
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        
+        temp = []
+        stack = []
+        
+        for i in range(len(s)):
+            if s[i] == ")":
+                while stack and stack[-1] != "(":
+                    temp.append(stack[-1])
+                    stack.pop()
+                stack.pop()
+                
+                for ch in temp:
+                    stack.append(ch)
+                
+                temp = []
+            else:
+                stack.append(s[i])
+        return "".join(stack)
+                
+        
