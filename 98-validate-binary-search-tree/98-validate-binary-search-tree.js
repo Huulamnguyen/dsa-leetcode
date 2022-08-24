@@ -12,15 +12,13 @@
  */
 var isValidBST = function(root) {
     
-    // DFS valid helper function
-    const valid = (node, left, right) => {
-        if (node === null) return true
-        if (!(node.val > left && node.val < right )) return false
-        
-        // recursive check
-        return valid(node.left, left, node.val) && valid(node.right, node.val, right)
+    // depth first search and recursive
+    
+    const dfs = (node, left, right) => {
+        if(node === null) return true
+        if(!(node.val > left && node.val < right)) return false
+        return dfs(node.left, left, node.val) && dfs(node.right, node.val, right)
     }
     
-    return valid(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
-    
+    return dfs(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY)
 };
