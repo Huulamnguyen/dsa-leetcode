@@ -8,7 +8,7 @@ var maximumUnits = function(boxTypes, truckSize) {
     // sort the boxTypes by its unit non-increasingly (Decreasing)
     boxTypes.sort((a,b) => b[1] - a[1])
     
-    const boxes = {}
+    // const boxes = {}
     let numOfUnit = 0
     
     for (let row=0; row<boxTypes.length; row++){
