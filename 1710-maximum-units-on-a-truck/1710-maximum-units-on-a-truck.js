@@ -12,12 +12,12 @@ var maximumUnits = function(boxTypes, truckSize) {
     let numOfUnit = 0
     
     for (let row=0; row<boxTypes.length; row++){
-        const noBoxes = boxTypes[row][0]
+        const numOfBox = boxTypes[row][0]
         const unitPerBox = boxTypes[row][1]
         
-        if(truckSize > noBoxes){
-            numOfUnit += noBoxes * unitPerBox
-            truckSize -= noBoxes
+        if(truckSize > numOfBox){
+            numOfUnit += numOfBox * unitPerBox
+            truckSize -= numOfBox
         } else {
             numOfUnit += truckSize * unitPerBox;
             return numOfUnit
