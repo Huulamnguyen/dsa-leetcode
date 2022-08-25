@@ -5,25 +5,24 @@
  */
 var canConstruct = function(ransomNote, magazine) {
     
-    if (ransomNote === null || magazine === null || magazine.length < ransomNote.length){
+    if (ransomNote == null || magazine == null || magazine.length < ransomNote.length ) {
         return false
     }
     
-    const charMap = new Map()
+    const hm = new Map()
     
     for (let char of magazine){
-        charMap.set(char, charMap.get(char) ? charMap.get(char) + 1 : 1)
+        hm.set(char, hm.get(char) ? hm.get(char) + 1 : 1)
     }
     
-    for (let char of ransomNote){
-        if( !charMap.has(char) || charMap.get(char) === 0 ) {
+    for ( let char of ransomNote){
+        if ( !hm.has(char) || hm.get(char) === 0){
             return false
         } else {
-            charMap.set(char, charMap.get(char) ? charMap.get(char) - 1 : 0)
+            hm.set(char, hm.get(char) ? hm.get(char) - 1: 0)
         }
-        
     }
     
     return true
-
+    
 };
