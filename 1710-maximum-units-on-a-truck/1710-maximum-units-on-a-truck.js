@@ -5,25 +5,23 @@
  */
 var maximumUnits = function(boxTypes, truckSize) {
     
-    // sort the boxTypes by its unit non-increasingly (Decreasing)
     boxTypes.sort((a,b) => b[1] - a[1])
     
-    // const boxes = {}
-    let numOfUnit = 0
+    let totalUnit = 0
     
     for (let row=0; row<boxTypes.length; row++){
-        const numOfBox = boxTypes[row][0]
+        const numsOfBox = boxTypes[row][0]
         const unitPerBox = boxTypes[row][1]
         
-        if(truckSize > numOfBox){
-            numOfUnit += numOfBox * unitPerBox
-            truckSize -= numOfBox
+        if (truckSize > numsOfBox){
+            totalUnit += numsOfBox * unitPerBox
+            truckSize -= numsOfBox
         } else {
-            numOfUnit += truckSize * unitPerBox;
-            return numOfUnit
+            totalUnit += truckSize * unitPerBox
+            return totalUnit
         }
     }
-
-    return numOfUnit;
+    
+    return totalUnit
     
 };
