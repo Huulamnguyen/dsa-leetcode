@@ -13,7 +13,10 @@ var backspaceCompare = function(s, t) {
     while (s[i]) {
         
         if (s[0] === "#") s.shift(); // Shift if # at the begininng.
-        else if (s[i] === "#") {s.splice(i-1, 2); i--;} // Remove the letter and the '#'
+        else if (s[i] === "#") {
+            s.splice(i-1, 2); 
+            i--;
+        } // Remove the letter and the '#'
         else i++;
     }
     
@@ -22,10 +25,12 @@ var backspaceCompare = function(s, t) {
     while (t[i]) {
         
         if (t[0] === "#") t.shift();
-        else if (t[i] === "#") {t.splice(i-1, 2); i--;}
+        else if (t[i] === "#") {
+            t.splice(i-1, 2); 
+            i--;
+        }
         else i++;
     }
     
-    if (s.join("") === t.join("")) return true; 
-    else return false;
+    return true ? s.join("") === t.join("") : false
 };
