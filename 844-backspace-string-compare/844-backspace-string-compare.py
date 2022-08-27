@@ -1,41 +1,26 @@
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
-var backspaceCompare = function(s, t) {
-    
-    s = Array.from(s)
-    t = Array.from(t)
-    
-    let i = 0
-    
-    while(s[i]){
-        if (s[0] === "#") s.shift()
-        else if (s[i] === "#"){
-            s.splice(i-1,2);
-            i--;
-        }else{
-            i++;
-        }
-    }
-    
-    i = 0;
-    
-    while(t[i]){
-        if(t[0] === "#") t.shift()
-        else if (t[i] === "#"){
-            t.splice(i-1,2);
-            i--;
-        }else{
-            i++;
-        }
-    }
-    
-    // console.log(s.join(''))
-    // console.log(t.join(''))
-    
-    
-    return true ? s.join('') === t.join('') : false
-    
-};
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        
+        res1 = []
+        
+        for i in s:
+            if i != "#":
+                res1.append(i)
+            else:
+                if res1:
+                    res1.pop()
+        
+        res2 = []
+        for i in t:
+            if i != "#":
+                res2.append(i)
+            else:
+                if res2:
+                    res2.pop()
+        
+        if "".join(res1) == "".join(res2):
+            return True
+        else:
+            return False
+        
+        
