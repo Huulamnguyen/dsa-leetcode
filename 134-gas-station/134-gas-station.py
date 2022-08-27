@@ -13,3 +13,6 @@ class Solution:
                 total = 0
                 res = i + 1
         return res
+
+# Time: O(n)
+# Space: 0(1)
