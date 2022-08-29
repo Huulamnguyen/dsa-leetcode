@@ -18,5 +18,4 @@ var searchInsert = function(nums, target) {
     }
     
     return nums.length
-    
 };
