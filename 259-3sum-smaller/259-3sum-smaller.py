@@ -20,4 +20,6 @@ class Solution:
             threeSumCount += twoSumSmaller(i + 1, target - nums[i])
          
         return threeSumCount
-        
+    
+# Time: O(n^2)
+# Space: O(1)
