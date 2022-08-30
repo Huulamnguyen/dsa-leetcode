@@ -23,7 +23,7 @@ var threeSumSmaller = function(nums, target) {
     }
     
     let threeSumCount = 0
-    for(let i = 0; i < nums.length; i++){
+    for(let i = 0; i < nums.length - 2; i++){
         threeSumCount += twoSumSmaller(i+1, target - nums[i])
     }
     return threeSumCount
