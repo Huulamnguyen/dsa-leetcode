@@ -7,19 +7,20 @@ var twoSumLessThanK = function(nums, k) {
     
     nums.sort((a,b) => a - b)
     
-    let start = 0
-    let end = nums.length - 1
-    let max = Number.MIN_SAFE_INTEGER;
+    let left = 0;
+    let right = nums.length - 1
+    let maxSum = 0
     
-    while(start < end){
-        if (nums[start] + nums[end] < k){
-            max = Math.max(max, nums[start] + nums[end])
-            start++
+    while(left < right){
+        let currSum = nums[left] + nums[right]
+        if(currSum < k){
+            if(maxSum < currSum) maxSum = currSum
+            left++
         }else{
-            end--
+            right--
         }
     }
     
-    return max === Number.MIN_SAFE_INTEGER ? -1 : max;
+    return maxSum ? maxSum : -1
     
 };
