@@ -10,20 +10,17 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-
-// recursive approach
 var inorderTraversal = function(root) {
     
     let res = []
     helper(root, res)
     return res
     
-    function helper(root, res){
-        if(root !== null){
+    function helper (root, res){
+        if (root !== null){
             helper(root.left, res)
             res.push(root.val)
             helper(root.right, res)
         }
     }
-    
 };
