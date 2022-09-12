@@ -9,10 +9,10 @@ var MyCalendar = function() {
  * @return {boolean}
  */
 MyCalendar.prototype.book = function(start, end) {
-    for(let q=0;q<cal.length;q++){
-        if(start<cal[q][1] && end>cal[q][0])return false
+    for(i=0; i<cal.length; i++){
+        if(start<cal[i][1] && end>cal[i][0]) return false
     }
-    cal.push([start,end])
+    cal.push([start, end])
     return true
 };
 
