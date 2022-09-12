@@ -1,6 +1,5 @@
 
 var MyCalendar = function() {
-    
     cal = []
 };
 
