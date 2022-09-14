@@ -5,26 +5,23 @@
  */
 var combinationSum2 = function(candidates, target) {
     
-    const res = [] // decalre empty array
-    candidates.sort((a,b) => b-a) // sort candidates in decending order
+    const res = []
     
-    const helper = (rem, start, current) => {
-        if (rem < 0) return;
-        if (rem === 0) {
-            res.push(current.slice())
-            return;
+    candidates.sort((a,b) => a - b)
+    
+    function helper(temp, tar, start){
+        if(tar < 0) return;
+        if(tar === 0){
+            res.push(temp)
+            return
         }
         
-        for (let i=start; i<candidates.length; i++){
-            if(i > start && candidates[i] === candidates[i-1]) continue;
-            current.push(candidates[i])
-            helper(rem-candidates[i], i+1, current.slice())
-            current.pop()
+        for(let i=start; i<candidates.length; i++){
+            if(i!==start && candidates[i] === candidates[i-1]) continue
+            helper([...temp, candidates[i]], tar - candidates[i], i+1 )
         }
-        
     }
-    
-    helper(target, 0, [])
+     helper([], target, 0)
     return res
     
 };
