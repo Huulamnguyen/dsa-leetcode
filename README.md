@@ -13,3 +13,15 @@
 - Becoming a software engineer to me, a problem solver. A person who is willing to learn and keep learning since technology is an industry that keeps changing infinitely over time.
 - Being a part of building an application/solution that makes our community a better place. 
 - "Coding Every Day" - Commitment | Try to solve at least ONE problem A DAY
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Array
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/Huulamnguyen/dsa-leetcode/tree/master/0001-two-sum) |
+## Hash Table
+|  |
+| ------- |
+| [0001-two-sum](https://github.com/Huulamnguyen/dsa-leetcode/tree/master/0001-two-sum) |
+<!---LeetCode Topics End-->
