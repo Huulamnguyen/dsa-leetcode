@@ -1,16 +1,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         left = 0
-        char_map = {} # -> store char
-        max_length = 0
-        
+        char_map = {}
+        max_len = 0
+
         for right in range(len(s)):
-            
-            # If char seen before and wihtin the current window, jump left pointer directly
+            # If the char seen before and within the current window slide, jump the left directly
             if s[right] in char_map and char_map[s[right]] >= left:
                 left = char_map[s[right]] + 1
-
-            char_map[s[right]] = right # Update char's most recent position
-            max_length = max(max_length, right - left + 1) # Track max window size
+            char_map[s[right]] = right
+            max_len = max(max_len, right - left + 1)
         
-        return max_length
+        return max_len
